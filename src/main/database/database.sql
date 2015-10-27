@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS db_usermanage CHARACTER  SET UTF8;
-USE db_usermanage;
+CREATE DATABASE IF NOT EXISTS db_cloudnotes CHARACTER  SET UTF8;
+USE db_cloudnotes;
 
 #用户信息表
 CREATE TABLE IF NOT EXISTS tb_user(

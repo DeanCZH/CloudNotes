@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+
+       http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx.xsd
+
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--引入jdbc配置 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--扫描控制器,当配置了它后,Spring会自动的到com.mjl.controller
+    下扫描带有@controller @service @component等注解等类,将他们自动实例化-->
+    <!--  扫描文件(自动将service层注入)-->
+    <!--<context:component-scan base-package="com.mjl.service">-->
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+            <!--</context:component-scan>-->
+
+    <!--<aop:aspectj-autoproxy proxy-target-class="true" />-->
+    <!--配置数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc_driverClassName}"/>
+        <property name="url" value="${jdbc_url}"/>
+        <property name="username" value="${jdbc_username}"/>
+        <property name="password" value="${jdbc_password}"/>
+        <!--连接池中保存的最大连接数目-->
+        <property name="maxActive" value="20"/>
+        <!--连接池中保存的最少连接数目-->
+        <property name="minIdle" value="2"/>
+        <!-- 初始化连接大小 -->
+        <property name="initialSize" value="2"/>
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait" value="6000"/>
+        <!-- 连接池最大空闲 -->
+        <property name="maxIdle" value="60"/>
+    </bean>
+
+    <!--配置sqlSessionFactory 并将数据源注入-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--指定要使用到到mybatis配置文件-->
+        <property name="configLocation" value="classpath:config.xml"/>
+        <!--用于配置mapper映射xml-->
+        <!--<property name="mapperLocations" value="classpath*:com/mjl/mapper/*.xml"/>-->
+    </bean>
+
+    <bean id="UserDaoI" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例-->
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+        <!--mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象-->
+        <property name="mapperInterface" value="com.mjl.dao.UserDaoI,com.mjl.dao" />
+
+    </bean>
+
+
+    <!-- 创建数据映射器-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.mjl.dao"/>-->
+    <!--</bean>-->
+
+
+    <!-- 对数据源进行事务管理 -->
+    <!--<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+    <!--配置事务打传播特性 该事务打管理者为txManager 事务的隔离级别设置为REQUIRED则表示当前有事务就加入,没有则创建一个
+    新的,SUPPORTS有则加入,无则没有事务隔离执行-->
+        <!--<tx:advice id="userTxAdvice" transaction-manager="txManager">-->
+            <!--<tx:attributes>-->
+                <!--<tx:method name="delete*" propagation="REQUIRED" read-only="false"-->
+                           <!--rollback-for="java.lang.Exception" no-rollback-for="java.lang.RuntimeException" />-->
+                <!--<tx:method name="add*" propagation="REQUIRED" read-only="false"-->
+                           <!--rollback-for="java.lang.RuntimeException" />-->
+                <!--<tx:method name="update*" propagation="REQUIRED" read-only="false"-->
+                           <!--rollback-for="java.lang.Exception" />-->
+                <!--<tx:method name="find*" propagation="SUPPORTS" />-->
+                <!--<tx:method name="list*" propagation="SUPPORTS" />-->
+                <!--<tx:method name="get*" propagation="SUPPORTS" />-->
+                <!--<tx:method name="select*" propagation="SUPPORTS" />-->
+            <!--</tx:attributes>-->
+        <!--</tx:advice>-->
+    <!--<tx:annotation-driven transaction-manager="txManager" />-->
+    <!--引用创建的事务-->
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="pc" expression="execution( * com.mjl.service.*.*(..))" /> &lt;!&ndash;把事务控制在Service层&ndash;&gt;-->
+        <!--<aop:advisor pointcut-ref="pc" advice-ref="userTxAdvice" />-->
+    <!--</aop:config>-->
+
+   <!--<bean id="loginAop" class="com.mjl.aop.loginAop"/>-->
+
+</beans>
+
