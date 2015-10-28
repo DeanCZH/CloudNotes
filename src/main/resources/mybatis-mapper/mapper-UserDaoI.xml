@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.mjl.dao.UserDaoI">
+    <!--User结果集-->
+    <resultMap id="userMap" type="User">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPassWord" column="user_password"/>
+        <result property="userEmail" column="user_email"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="userCreateTime" column="user_createtime"/>
+        <result property="userLastLoginTime" column="user_lastlogintime"/>
+        <result property="userLastIp" column="user_lastip"/>
+    </resultMap>
+
+
+
+    <sql id="user_columns">
+        user_id,
+        user_name,
+        user_password,
+        user_email,
+        user_phone,
+        user_createtime,
+        user_lastlogintime,
+        user_lastip
+    </sql>
+
+
+    <!--通过用户名查找用户-->
+    <select id="findUserByUserName" parameterType="string" resultMap="userMap">
+        SELECT
+        <include refid="user_columns"/>
+        FROM
+        tb_user
+        WHERE
+        user_name=#{userName}
+    </select>
+
+
+    <!--插入用户信息-->
+    <insert id="addUser" parameterType="User" keyProperty="userId" useGeneratedKeys="true">
+        INSERT  INTO
+        tb_user(
+        user_name,
+        user_password,
+        user_email,
+        user_phone,
+        user_createtime,
+        user_lastlogintime,
+        user_lastip
+        )VALUES(
+        #{userName},
+        #{userPassWord},
+        #{userEmail},
+        #{userPhone},
+        #{userCreateTime},
+        #{userLastLoginTime},
+        #{userLastIp}
+        )
+    </insert>
+
+    <!--删除用户信息-->
+    <delete id="deleteUserByUserName" parameterType="string">
+        DELETE FROM
+        tb_user
+        WHERE
+        user_name = #{userName}
+    </delete>
+
+    <update id="updateUserByUserName"  parameterType="User">
+        UPDATE tb_user
+        SET
+        <trim suffixOverrides=",">
+        <if test="userPassWord != null and userPassWord != '' ">
+            user_password= #{userPassWord,jdbcType=VARCHAR},
+        </if>
+        <if test="userPhone != null and userPhone != ''">
+            user_phone= #{userPhone,jdbcType=VARCHAR},
+        </if>
+        <if test="userEmail != null and userEmail != '' ">
+            user_email=#{userEmail},
+        </if>
+        <if test="userLastLoginTime != null and userLastLoginTime != '' ">
+            last_logintime=#{userLastLoginTime},
+        </if>
+        <if test="userLastIp != null and userLastIp != '' ">
+            last_ip=#{userLastIp},
+        </if>
+        </trim>
+        WHERE
+        user_name=#{userName,jdbcType=VARCHAR}
+    </update>
+
+
+</mapper>

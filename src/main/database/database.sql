@@ -3,13 +3,14 @@ USE db_cloudnotes;
 
 #用户信息表
 CREATE TABLE IF NOT EXISTS tb_user(
-user_id INT(10) NOT NULL AUTO_INCREMENT,
-user_name VARCHAR(20) NOT NULL UNIQUE ,
-user_password VARCHAR(20) NOT NULL,
-user_email VARCHAR(50) NOT NULL,
-user_phone VARCHAR (20),
-user_createtime DATETIME ,
-user_lastlogintime TIMESTAMP,
+user_id int(10) NOT NULL AUTO_INCREMENT,
+user_name varchar(20) NOT NULL UNIQUE ,
+user_password varchar(20) NOT NULL,
+user_email varchar(50) NOT NULL UNIQUE ,
+user_phone varchar(11) NOT NULL UNIQUE ,
+user_createtime datetime DEFAULT NULL,
+user_lastlogintime datetime NOT NULL ,
+user_lastip varchar(15) NOT NULL,
 PRIMARY key (user_id)
 )ENGINE=InnoDB DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 

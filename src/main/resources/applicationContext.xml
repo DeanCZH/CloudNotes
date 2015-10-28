@@ -50,17 +50,16 @@
         <!--注入数据源-->
         <property name="dataSource" ref="dataSource"/>
         <!--指定要使用到到mybatis配置文件-->
-        <property name="configLocation" value="classpath:config.xml"/>
+        <property name="configLocation" value="classpath:mybatis-mapper/config.xml"/>
         <!--用于配置mapper映射xml-->
-        <!--<property name="mapperLocations" value="classpath*:com/mjl/mapper/*.xml"/>-->
+        <property name="mapperLocations" value="classpath*:mybatis-mapper/mapper-*.xml"/>
     </bean>
 
     <bean id="UserDaoI" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例-->
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
         <!--mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象-->
-        <property name="mapperInterface" value="com.mjl.dao.UserDaoI,com.mjl.dao" />
-
+        <property name="mapperInterface" value="com.mjl.dao.UserDaoI" />
     </bean>
 
 
