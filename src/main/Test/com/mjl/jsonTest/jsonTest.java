@@ -1,7 +1,6 @@
 package com.mjl.jsonTest;
 
-import com.mjl.model.User;
-import org.codehaus.jackson.JsonParseException;
+import com.mjl.model.po.User;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 

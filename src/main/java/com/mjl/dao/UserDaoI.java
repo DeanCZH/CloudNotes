@@ -1,6 +1,6 @@
 package com.mjl.dao;
 
-import com.mjl.model.User;
+import com.mjl.model.po.User;
 
 /**
  * Created by Alvin on 15/10/28.

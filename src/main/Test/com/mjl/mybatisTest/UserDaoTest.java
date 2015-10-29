@@ -1,7 +1,7 @@
 package com.mjl.mybatisTest;
 
 import com.mjl.dao.UserDaoI;
-import com.mjl.model.User;
+import com.mjl.model.po.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

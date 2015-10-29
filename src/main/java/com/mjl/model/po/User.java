@@ -1,4 +1,4 @@
-package com.mjl.model;
+package com.mjl.model.po;
 
 import sun.rmi.runtime.Log;
 
