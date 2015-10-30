@@ -24,8 +24,12 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public ResultResponse userLogin(String userName,String passWord,HttpSession httpSession){
+        System.out.println("1");
         Map<String,Object> result = userServiceI.login(userName,passWord);
-        if("1".equals(result.get("status"))){
+        System.out.println("status:"+result.get("status"));
+        System.out.println("message:"+result.get("message"));
+        if(result.get("status").equals(1)){
+            System.out.println(2);
             User user = userServiceI.findUserByUserName(userName);
             result.put("result",user);
         }

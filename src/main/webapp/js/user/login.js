@@ -2,6 +2,17 @@
  * Created by jinglingmei on 15/10/29.
  */
 //login
+$(function(){
+   $("#login").click(function(){
+        login();
+   });
+
+
+
+});
+
+
+
 function login(){
     var username = $('#username').val();
     var password = $('#password').val();
@@ -22,7 +33,7 @@ function login(){
                 $("#password").val("");
             }
         },
-        error:function(xhr,status,statusText){
+        error:function(XMLHttpRequest,status,statusText){
             alert("请求失败");
         }
     });

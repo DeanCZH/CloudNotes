@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserServiceI{
             result.put("status",Constant.USER_LOGIN_SUCCESS);
             result.put("message","登录成功!");
         }
+        System.out.println("service");
         return result;
     }
 

@@ -1,7 +1,8 @@
 package com.mjl.jsonTest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mjl.model.po.User;
-import org.codehaus.jackson.map.ObjectMapper;
+
 import org.junit.Test;
 
 import java.io.IOException;

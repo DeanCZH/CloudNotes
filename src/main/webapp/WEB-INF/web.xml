@@ -52,7 +52,7 @@
 
     <!--用于设定默认首页-->
     <welcome-file-list>
-        <welcome-file>/mainPage.do</welcome-file>
+        <welcome-file>/login.html</welcome-file>
     </welcome-file-list>
 
 
