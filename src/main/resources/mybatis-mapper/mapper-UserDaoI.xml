@@ -86,10 +86,10 @@
             user_email=#{userEmail},
         </if>
         <if test="userLastLoginTime != null and userLastLoginTime != '' ">
-            last_logintime=#{userLastLoginTime},
+            user_lastlogintime=#{userLastLoginTime},
         </if>
         <if test="userLastIp != null and userLastIp != '' ">
-            last_ip=#{userLastIp},
+            user_lastip=#{userLastIp},
         </if>
         </trim>
         WHERE

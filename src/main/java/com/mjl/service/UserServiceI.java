@@ -12,4 +12,7 @@ import java.util.Map;
 public interface UserServiceI {
     public Map<String,Object> login(String userName,String passWord);
     public User findUserByUserName(String userName);
+    public  boolean checkUserName(String userName);
+    public void createUser(User user);
+    public void updateUserInfo(User user);
 }

@@ -3,43 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <title>用户登录</title>
-    <script type="text/javascript" src="js/common/jquery-2.1.4.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/base.js"></script>
-    <script type="text/javascript" src="js/user/login.js"></script>
+    <script type="text/javascript" src="js/user/user.js"></script>
 
 </head>
 <body>
-<div class="log log_in" tabindex='-1' id='usermanage'>
-    <dl>
-        <dt>
-            <div class='header'>
-                <h3>登&nbsp;&nbsp;&nbsp;录</h3>
-            </div>
-        </dt>
-        <dt></dt>
-        <dt>
-            <div class="letter">
-                用户名:&nbsp;<input type="text" name="" id="username" tabindex="1"/>
-                <span id="username_span"></span>
-            </div>
-        </dt>
-        <dt>
-        <div class="letter">
-            密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password" name="" id="password" tabindex="2"/>
-            <span id="password_span"></span>
-        </div>
-        </dt>
-        <dt>
-        <div class="letter">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" name="" id="login" value="&nbsp;登&nbsp;录&nbsp;" tabindex="3"/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" name="" id="sig_in" value="&nbsp;注&nbsp;册&nbsp;" tabindex="4"/>
-        </div>
-        </dt>
-    </dl>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">CloudNotes</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">
+            <button type="submit" class="btn btn-success btn-sm" data-toggle="modal" id="login" data-target="#log_in">登&nbsp;录</button>&nbsp;&nbsp;
+            <button type="submit" class="btn btn-success btn-sm" data-toggle="modal" id="sig_in" data-target="#sig_out">注&nbsp;册</button>
+        </form>
+    </div><!--/.navbar-collapse -->
 </div>
+</nav>
 
 
+    <div class="model fade" id="log_in" tabindex="-1" id="dl" aria-hidden="true" aria-labelledby="mylogin">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="user_login">
+                        用&nbsp;户&nbsp;登&nbsp;录
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="letter">
+                        用户名:&nbsp;<input type="text"
+                                         name="" id="username" tabindex="5" maxlength="20"/>
+                        <div class = "waring" id="waring_1"><span>用户名不能为空</span></div>
+                    </div>
+                    </dt>
+                    </br>
+                    <dt>
+                    <div class="letter">
+                        密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password"
+                                                          name="" id="password" tabindex="6" maxlength="20"/>
+                        <div class = "waring" id="waring_2"><span>用户名/密码不正确</span></div>
+                    </div>
+                    </dt>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="button_login">&nbsp;登&nbsp;录&nbsp;
+                    </button>
+                    <button type="button" class="btn btn-primary" id="button_back" data-dismiss="modal">
+                        &nbsp;返&nbsp;回&nbsp;
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class="model fade" id="sig_out" role="dialog"  tabindex="-1" id="zc" aria-hidden="true" aria-labelledby="mysig_out">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        用&nbsp;户&nbsp;注&nbsp;册
+                    </h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="letter">
+                        用户名:&nbsp;&nbsp;<input type="text"
+                                         name="" id="register_username" tabindex="5" maxlength="20"/>
+                        <div class = "waring" id="waring_3"><span>用户名已存在</span></div>
+                    </div>
+                    </dt>
+                    </br>
+                    <dt>
+                    <div class="letter">
+                        密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password"
+                        name="" id="register_password" tabindex="6" maxlength="20"/>
+                        <div class = "waring" id="waring_4"><span>密码长度过短</span></div>
+                    </div>
+                    </dt>
+                    </br>
+                    <dt>
+                    <div class="letter">
+                        确认密码:<input type="password"
+                                          name="" id="register_repassword" tabindex="7" maxlength="20"/>
+                        <div class = "waring" id="waring_5"><span>两次输入密码不同</span></div>
+                    </div>
+                    </dt>
+                    </br>
+                    <dt>
+                    <div class="letter">
+                        邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:&nbsp;<input type="test"
+                                                          name="" id="register_emial" tabindex="8" maxlength="20"/>
+                        <div class = "waring" id="waring_6"><span>邮箱格式不同</span></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="register_button">&nbsp;注&nbsp;册&nbsp;
+                    </button>
+                    <button type="button" class="btn btn-primary" id="back" data-dismiss="modal">
+                           &nbsp;返&nbsp;回&nbsp;
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div>
+    </div>
+</div>
+    <div class="jumbotron">
+
+        <h1>欢迎登陆页面！</h1>
+        <p>这是一个超大屏幕（Jumbotron）的实例。</p>
+        <p><a class="btn btn-primary btn-lg" role="button">
+            学习更多</a>
+        </p>
+    </div>
 </body>
 </html>

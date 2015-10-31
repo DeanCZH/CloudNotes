@@ -45,7 +45,6 @@ public class ResultResponse {
         this.date = date;
     }
 
-    public ResultResponse(Object o){
-
+    public ResultResponse() {
     }
 }
