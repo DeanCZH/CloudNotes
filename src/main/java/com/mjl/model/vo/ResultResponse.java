@@ -13,7 +13,7 @@ public class ResultResponse {
     //用于返回的信息,在前端显示
     private String message;
     //用于返回需要传递给用户的信息
-    private Object date;
+    private Object data;
 
     public int getStatus() {
         return status;
@@ -31,18 +31,19 @@ public class ResultResponse {
         this.message = message;
     }
 
-    public Object getDate() {
-        return date;
+
+    public Object getData() {
+        return data;
     }
 
-    public void setDate(Object date) {
-        this.date = date;
+    public void setData(Object data) {
+        this.data = data;
     }
 
-    public ResultResponse(int status, String message, Object date) {
+    public ResultResponse(int status, String message, Object data) {
         this.status = status;
         this.message = message;
-        this.date = date;
+        this.data = data;
     }
 
     public ResultResponse() {

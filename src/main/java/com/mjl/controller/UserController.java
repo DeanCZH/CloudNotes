@@ -28,16 +28,19 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public ResultResponse userLogin(String userName,String userPassWord,HttpServletRequest request){
+    public ResultResponse userLogin(String userName,String userPassWord,HttpServletRequest request,HttpSession session){
         Map<String,Object> result = userServiceI.login(userName,userPassWord);
         if(result.get("status").equals(1)){
             User dbuser = userServiceI.findUserByUserName(userName);
             dbuser.setUserLastIp(request.getRemoteAddr());
             dbuser.setUserLastLoginTime(new Timestamp(new Date().getTime()));
             userServiceI.updateUserInfo(dbuser);
-            result.put("result",dbuser);
+            session.setAttribute("user",dbuser);
+            result.put("user",dbuser);
         }
-        return new ResultResponse((Integer) result.get("status"),(String)result.get("message"),result.get("reslut"));
+        ResultResponse res = new  ResultResponse((Integer) result.get("status"),(String)result.get("message"),result.get("user"));
+        System.out.println(res.toString());
+        return res;
     }
 
 
@@ -49,6 +52,7 @@ public class UserController {
         if(!userServiceI.checkUserName(dbUserName)){
             res.setStatus(Constant.USER_REGISTER_ERROR);
             res.setMessage("用户名已存在");
+            System.out.println("用户名存在");
             return res;
         }
         userServiceI.createUser(user);

@@ -16,6 +16,8 @@
     </context:component-scan>
 
 
+
+
     <!--<mvc:annotation-driven /> 会自动注册DefaultAnnotationHandlerMapping与
     AnnotationMethodHandlerAdapter 两个bean,它解决了一些@controllerz注解使用时的提前配置-->
     <mvc:annotation-driven />
@@ -25,6 +27,7 @@
         <property name="prefix" value="/view/"/>
         <property name="suffix" value=".jsp" />
     </bean>
+
 
 
 
