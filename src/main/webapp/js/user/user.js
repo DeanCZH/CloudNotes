@@ -7,6 +7,9 @@ $(function(){
     $("#username").val(getCookie("userName"));
     $("#password").val(getCookie("passWord"));
 
+    $("#log_out").click(function () {
+       logout();
+    });
 
    $("#button_login").click(function(){
         login();
@@ -103,7 +106,7 @@ function register(){
 function login(){
     var username = $('#username').val();
     var password = $('#password').val();
-
+    var checked = $('#rememberpassword').prop('checked');
     if(username == ""|| password ==""){
         return ;
     }
@@ -121,17 +124,47 @@ function login(){
             } else {
                 //登录成功
 
+                if(checked == true){
+                    addCookie("userName",result.data.userName,5);
+                    addCookie("passWord",result.data.userPassWord,5);
+
+                }else{
+                    deleteCookie("userName");
+                    deleteCookie("passWord");
+                }
                 location.href = "main.html";
-                addCookie("userName",result.data.userName,5);
-                addCookie("passWord",result.data.userPassWord,5);
-
-
-
             }
         },
         error:function(XMLHttpRequest,status,statusText){
             console.log("error");
             alert("请求失败");
         }
+    });
+}
+
+//退出登录
+function logout(){
+    $.ajax({
+        type:"post",
+        url:basepath+"user/logout.do",
+        dataType:"json",
+        data:{},
+        success:function(result){
+            if(result.status == 0){
+                //退出失败
+                alert(result.message);
+            }else{
+                //退出成功
+                deleteCookie(getCookie())
+                location.href = "login.html";
+            }
+        },
+        error:function(XMLHttpRequest,status,statusText){
+            console.log("error");
+            alert("请求失败");
+        }
+
+
+
     });
 }

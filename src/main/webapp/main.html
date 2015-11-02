@@ -9,7 +9,7 @@
     <script type="text/javascript" src="js/base.js"></script>
     <script type="text/javascript" src="js/user/user.js"></script>
     <script type="text/javascript" src="js/user/cookie.js"></script>
-
+    <script type="text/javascript" src="js/mainpage.js"></script>
 </head>
 <body>
 
@@ -21,16 +21,16 @@
         <div id="navbar" class="navbar-collapse collapse navbar-right">
             <div >
                 <ul class="nav navbar-nav">
-                    <li class="dropdown ">
+                    <li class="dropdown " id="top_user_menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Java
                             <b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" >
                             <li><a href="#">个人资料</a></li>
                             <li><a href="#">我的笔记</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">退出</a></li>
+                            <li id="log_out"><a href="#">退出</a></li>
                         </ul>
                     </li>
                    <li><a href="#">会员中心</a></li>

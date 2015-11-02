@@ -35,8 +35,8 @@ public class UserController {
             dbuser.setUserLastIp(request.getRemoteAddr());
             dbuser.setUserLastLoginTime(new Timestamp(new Date().getTime()));
             userServiceI.updateUserInfo(dbuser);
-            session.setAttribute("user",dbuser);
-            result.put("user",dbuser);
+            session.setAttribute("user", dbuser);
+            result.put("user", dbuser);
         }
         ResultResponse res = new  ResultResponse((Integer) result.get("status"),(String)result.get("message"),result.get("user"));
         System.out.println(res.toString());
@@ -59,6 +59,13 @@ public class UserController {
         res.setStatus(Constant.USER_REGISTER_SUCCESS);
         res.setMessage("恭喜你!注册成功");
         return res;
+    }
+
+    @RequestMapping(value = "/logout" ,method = RequestMethod.POST)
+    @ResponseBody
+    public ResultResponse logout(HttpSession session){
+        session.invalidate();
+        return new ResultResponse(1,"退出成功",null);
     }
 
 }
