@@ -11,10 +11,10 @@
     <script type="text/javascript" src="js/user/cookie.js"></script>
     <script type="text/javascript" src="js/mainpage.js"></script>
 </head>
-<body>
+<body style="padding-top: 50px;">
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+
         <div class="navbar-header">
             <a class="navbar-brand" href="#">CloudNotes</a>
         </div>
@@ -23,7 +23,6 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown " id="top_user_menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Java
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu" >
@@ -38,27 +37,70 @@
                 </ul>
             </div>
         </div><!--/.navbar-collapse -->
-    </div>
+
 </nav>
-<br>
-<br>
-<br>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-2 sidebar">
+<div id="out" class="container">
+<div class="row" style="padding: 0;" id="main-content">
+    <!--功能栏-->
+
+    <div class="col-sm-2" style="padding: 0;" id="left_page">
+        <div class="left_page_top">
+            <h3>功能栏</h3>
+        </div>
+    <aside class="side-right" id="first_side_right">
+        <div class="col-sm-9 sidebar">
             <ul class="nav nav-pills nav-stacked">
-                <li ><a href="#">我的日记</a></li>
+                <li><a href="#">我的日记</a></li>
                 <li><a href="#">我的文件</a></li>
                 <li><a href="#">我的信息</a></li>
             </ul>
         </div>
-        <div class="col-sm-9 main">
-            <h1>hahaah</h1>
-        </div>
+    </aside>
     </div>
 
+    <!--内容-->
+    <div class="col-sm-10" style="padding: 0;" id="right_page">
+        <div class="right_page_top">
+            <div class="row">
+                <div class="col-xs-9">
+                     <h3>我的笔记</h3>
+                </div>
+                <div class="col-xs-2">
+                    <button class="btn btn-primary btn-sm btn-block">新建笔记</button>
+                </div>
+            </div>
+        </div>
+        <aside class="side-right" id='second_side_right'>
+            <div class="module" data-toggle="niceScroll">
+                <div class="chat-contact">
+                    <div class="contact-body clear_margin">
+                        <ul class="contacts-list">
 
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <script type="text/javascript">
+        //加载DOM之后处理页面高度
+        function get_dom(e){
+            return document.getElementById(e);
+        }
+        function set_height(){
+            var pc_height=window.innerHeight;
+            pc_height=pc_height-132;
+            get_dom('first_side_right').style.height=(pc_height-31)+'px';
+
+            get_dom('second_side_right').style.height=(pc_height-15)+'px';
+        }
+        set_height();
+
+    </script>
 </div>
-
+</div>
 </body>
 </html>

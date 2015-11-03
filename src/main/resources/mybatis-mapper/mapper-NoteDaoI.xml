@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.mjl.dao.NoteDaoI">
+    <!--User结果集-->
+    <resultMap id="noteMap" type="Note">
+        <id property="noteId" column="note_id"/>
+        <result property="noteUserId" column="note_userid"/>
+        <result property="noteTitle" column="note_title"/>
+        <result property="noteContent" column="note_content"/>
+        <result property="noteCreatetime" column="note_createtime"/>
+        <result property="noteUpdateTime" column="note_updatetime"/>
+    </resultMap>
+
+
+
+    <sql id="note_columns">
+        note_id,
+        note_userid,
+        note_title,
+        note_content,
+        note_createtime,
+        note_updatetime
+    </sql>
+
+
+    <insert id="addNote" parameterType="Note" keyProperty="noteId" useGeneratedKeys="true">
+        INSERT  INTO
+        tb_note(
+        note_userid,
+        note_title,
+        note_content,
+        note_createtime,
+        note_updatetime
+        )VALUES(
+        #{noteUserId},
+        #{noteTitle},
+        #{noteContent},
+        #{noteCreatetime},
+        #{noteUpdateTime}
+        )
+    </insert>
+
+
+
+</mapper>

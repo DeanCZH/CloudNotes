@@ -1,11 +1,8 @@
 /**
  * Created by jinglingmei on 15/11/2.
  */
-$(document).ready(function () {
-    $('#top_user_menu').mouseenter(function(){
-
-        $('#top_user_menu').trigger('click');
-    });
-
+$(function () {
+    $('.dropdown a:first b').before(getCookie("userName"));
+    $('.dropdown a:first').css('color','red');
 });
 

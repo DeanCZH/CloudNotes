@@ -9,8 +9,112 @@
     <script type="text/javascript" src="js/base.js"></script>
     <script type="text/javascript" src="js/user/user.js"></script>
     <script type="text/javascript" src="js/user/cookie.js"></script>
+    <div class="container">
+        <div class="model fade" id="log_in" tabindex="-1" id="dl" aria-hidden="true" aria-labelledby="mylogin">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="user_login">
+                            用&nbsp;户&nbsp;登&nbsp;录
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="letter">
+                            用户名:&nbsp;<input type="text"
+                                             name="" id="username" tabindex="1" maxlength="20"/>
+                            <div class = "waring" id="waring_1"><span></span></div>
+                        </div>
+                        </dt>
+                        </br>
+                        <dt>
+                        <div class="letter">
+                            密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password"
+                                                                    name="" id="password" tabindex="2" maxlength="20"/>
+                            <div class = "waring" id="waring_2"><span></span></div>
+                        </div>
+                        </dt>
+                        <dt>
+                        <div class="letter">
+                            <label>
+                                <input type="checkbox" value="remember-me" id="rememberpassword"> 记住密码
+                            </label>
+                        </div>
+                        </dt>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="button_login">&nbsp;登&nbsp;录&nbsp;
+                            </button>
+                            <button type="button" class="btn btn-primary" id="button_back" data-dismiss="modal">
+                                &nbsp;返&nbsp;回&nbsp;
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="model fade" id="sig_out" role="dialog"  tabindex="-1" id="zc" aria-hidden="true" aria-labelledby="mysig_out">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            用&nbsp;户&nbsp;注&nbsp;册
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="letter">
+                            用户名:&nbsp;&nbsp;<input type="text"
+                                                   name="" id="register_username" tabindex="3" maxlength="20"/>
+                            <div class = "waring" id="waring_3"></div>
+                        </div>
+                        </dt>
+                        </br>
+                        <dt>
+                        <div class="letter">
+                            密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password"
+                                                                          name="" id="register_password" tabindex="4" maxlength="20"/>
+                            <div class = "waring" id="waring_4"></div>
+                        </div>
+                        </dt>
+                        </br>
+                        <dt>
+                        <div class="letter">
+                            确认密码:<input type="password"
+                                        name="" id="register_repassword" tabindex="5" maxlength="20"/>
+                            <div class = "waring" id="waring_5"></div>
+                        </div>
+                        </dt>
+                        </br>
+                        <dt>
+                        <div class="letter">
+                            邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:&nbsp;<input type="test"
+                                                                          name="" id="register_emial" tabindex="6" maxlength="20"/>
+                            <div class = "waring" id="waring_6"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="register_button">&nbsp;注&nbsp;册&nbsp;
+                        </button>
+                        <button type="button" class="btn btn-primary" id="back" data-dismiss="modal">
+                            &nbsp;返&nbsp;回&nbsp;
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div>
+        </div>
+    </div>
 </head>
-<body>
+<body style="padding-top: 50px;">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -26,110 +130,7 @@
 </div>
 </nav>
 
-<div class="container">
-    <div class="model fade" id="log_in" tabindex="-1" id="dl" aria-hidden="true" aria-labelledby="mylogin">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close"
-                            data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title" id="user_login">
-                        用&nbsp;户&nbsp;登&nbsp;录
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="letter">
-                        用户名:&nbsp;<input type="text"
-                                         name="" id="username" tabindex="1" maxlength="20"/>
-                        <div class = "waring" id="waring_1"><span></span></div>
-                    </div>
-                    </dt>
-                    </br>
-                    <dt>
-                    <div class="letter">
-                        密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password"
-                                                          name="" id="password" tabindex="2" maxlength="20"/>
-                        <div class = "waring" id="waring_2"><span></span></div>
-                    </div>
-                    </dt>
-                    <dt>
-                    <div class="letter">
-                        <label>
-                            <input type="checkbox" value="remember-me" id="rememberpassword"> 记住密码
-                        </label>
-                    </div>
-                    </dt>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="button_login">&nbsp;登&nbsp;录&nbsp;
-                    </button>
-                    <button type="button" class="btn btn-primary" id="button_back" data-dismiss="modal">
-                        &nbsp;返&nbsp;回&nbsp;
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div>
-    </div>
-    </div>
 
-
-
-    <div class="model fade" id="sig_out" role="dialog"  tabindex="-1" id="zc" aria-hidden="true" aria-labelledby="mysig_out">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close"
-                            data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">
-                        用&nbsp;户&nbsp;注&nbsp;册
-                    </h4>
-                </div>
-                <div class="modal-body">
-
-                    <div class="letter">
-                        用户名:&nbsp;&nbsp;<input type="text"
-                                         name="" id="register_username" tabindex="3" maxlength="20"/>
-                        <div class = "waring" id="waring_3"></div>
-                    </div>
-                    </dt>
-                    </br>
-                    <dt>
-                    <div class="letter">
-                        密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password"
-                        name="" id="register_password" tabindex="4" maxlength="20"/>
-                        <div class = "waring" id="waring_4"></div>
-                    </div>
-                    </dt>
-                    </br>
-                    <dt>
-                    <div class="letter">
-                        确认密码:<input type="password"
-                                          name="" id="register_repassword" tabindex="5" maxlength="20"/>
-                        <div class = "waring" id="waring_5"></div>
-                    </div>
-                    </dt>
-                    </br>
-                    <dt>
-                    <div class="letter">
-                        邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:&nbsp;<input type="test"
-                                                          name="" id="register_emial" tabindex="6" maxlength="20"/>
-                        <div class = "waring" id="waring_6"></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="register_button">&nbsp;注&nbsp;册&nbsp;
-                    </button>
-                    <button type="button" class="btn btn-primary" id="back" data-dismiss="modal">
-                           &nbsp;返&nbsp;回&nbsp;
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div>
-    </div>
-</div>
     <div class="jumbotron">
 
         <h1>欢迎登陆页面！</h1>
