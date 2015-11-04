@@ -36,12 +36,19 @@ public class UserDaoTest {
     }
 
     @Test
-    public void selectTest(){
+    public void selectUserTest(){
         User user1 = userDaoI.findUserByUserName("test1");
         User user2 = userDaoI.findUserByUserName("test2");
         System.out.println(user1.toString());
         System.out.println(user2.toString());
     }
+
+    @Test
+    public void selectUserAndNoteTest(){
+        User user = userDaoI.findUserAndNotesByUserName("test1");
+        System.out.println(user);
+    }
+
 
     @Test
     public void delectTest(){

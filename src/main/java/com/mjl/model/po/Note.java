@@ -61,4 +61,16 @@ public class Note implements Serializable{
     public void setNoteUpDateTime(Timestamp noteUpDateTime) {
         this.noteUpDateTime = noteUpDateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Note{" +
+                "noteId=" + noteId +
+                ", noteUserId=" + noteUserId +
+                ", noteTitle='" + noteTitle + '\'' +
+                ", noteContent='" + noteContent + '\'' +
+                ", noteCreateTime=" + noteCreateTime +
+                ", noteUpDateTime=" + noteUpDateTime +
+                '}';
+    }
 }

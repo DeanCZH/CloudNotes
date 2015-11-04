@@ -11,7 +11,7 @@
         <result property="noteUserId" column="note_userid"/>
         <result property="noteTitle" column="note_title"/>
         <result property="noteContent" column="note_content"/>
-        <result property="noteCreatetime" column="note_createtime"/>
+        <result property="noteCreateTime" column="note_createtime"/>
         <result property="noteUpdateTime" column="note_updatetime"/>
     </resultMap>
 
@@ -33,14 +33,12 @@
         note_userid,
         note_title,
         note_content,
-        note_createtime,
-        note_updatetime
+        note_createtime
         )VALUES(
         #{noteUserId},
         #{noteTitle},
         #{noteContent},
-        #{noteCreatetime},
-        #{noteUpdateTime}
+        #{noteCreateTime}
         )
     </insert>
 

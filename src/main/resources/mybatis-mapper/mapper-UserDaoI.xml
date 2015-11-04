@@ -17,8 +17,28 @@
         <result property="userLastIp" column="user_lastip"/>
     </resultMap>
 
+    <resultMap id="userAndNoteMap" type="User">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPassWord" column="user_password"/>
+        <result property="userEmail" column="user_email"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="userCreateTime" column="user_createtime"/>
+        <result property="userLastLoginTime" column="user_lastlogintime"/>
+        <result property="userLastIp" column="user_lastip"/>
+        <collection property="notes" ofType="Note">
+            <id property="noteId" column="note_id"/>
+            <result property="noteUserId" column="note_userid"/>
+            <result property="noteTitle" column="note_title"/>
+            <result property="noteContent" column="note_content"/>
+            <result property="noteCreateTime" column="note_createtime"/>
+            <result property="noteUpdateTime" column="note_updatetime"/>
+        </collection>
+    </resultMap>
 
-
+    
+    
+    
     <sql id="user_columns">
         user_id,
         user_name,
@@ -39,6 +59,22 @@
         tb_user
         WHERE
         user_name=#{userName}
+    </select>
+
+
+    <select id="findUserAndNotesByUserName"  resultMap="userAndNoteMap">
+        SELECT
+        *
+        FROM
+        tb_user U
+        INNER JOIN
+        tb_note N
+        ON
+        U.user_id = N.note_userid
+        WHERE
+        U.user_name=#{userName}
+
+
     </select>
 
 

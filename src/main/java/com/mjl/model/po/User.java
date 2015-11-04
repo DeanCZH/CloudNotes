@@ -4,6 +4,7 @@ import sun.rmi.runtime.Log;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by Alvin on 15/10/27.
@@ -17,6 +18,20 @@ public class User implements Serializable{
     private Timestamp userCreateTime;
     private Timestamp userLastLoginTime;
     private String userLastIp;
+
+    /*
+    user与note为一对多的关系
+     */
+
+    private List<Note> notes;
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
 
     public int getUserId() {
         return userId;
@@ -94,6 +109,7 @@ public class User implements Serializable{
                 ", userCreateTime=" + userCreateTime +
                 ", userLastLoginTime=" + userLastLoginTime +
                 ", userLastIp='" + userLastIp + '\'' +
+                ", notes=" + notes +
                 '}';
     }
 }
