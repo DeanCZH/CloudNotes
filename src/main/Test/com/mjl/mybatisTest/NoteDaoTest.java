@@ -25,8 +25,8 @@ public class NoteDaoTest {
     public void addTest(){
         Note testNote = new Note();
         testNote.setNoteUserId(1);
-        testNote.setNoteTitle("据说要文艺一点");
-        testNote.setNoteContent("啊,让我快快成长,成为一个大神!");
+        testNote.setNoteTitle("好无聊哦");
+        testNote.setNoteContent("怎么办,哎哎哎!!!!!!好忧伤");
         testNote.setNoteCreateTime(new Timestamp(new Date().getTime()));
         noteDaoI.addNote(testNote);
     }

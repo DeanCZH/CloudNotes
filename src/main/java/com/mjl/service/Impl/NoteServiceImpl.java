@@ -5,13 +5,15 @@ import com.mjl.dao.UserDaoI;
 import com.mjl.model.po.Note;
 import com.mjl.model.po.User;
 import com.mjl.service.NoteServiceI;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
+
 
 /**
  * Created by Alvin on 15/11/4.
  */
+@Service
 public class NoteServiceImpl implements NoteServiceI{
 
     @Resource
