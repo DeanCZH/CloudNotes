@@ -26,4 +26,8 @@ public class NoteServiceImpl implements NoteServiceI{
     public User ListAllNotesByUserName(String username) {
         return userDaoI.findUserAndNotesByUserName(username);
     }
+
+    public Note ListNoteContentByNoteId(int id) {
+        return noteDaoI.findNoteByNoteId(id);
+    }
 }

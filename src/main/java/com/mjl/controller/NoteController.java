@@ -34,4 +34,17 @@ public class NoteController {
         res.setData(noteList);
         return res;
     }
+
+
+    @RequestMapping(value = "noteContent-{noteId}" ,method = RequestMethod.GET)
+    @ResponseBody
+    public ResultResponse NoteContent(@PathVariable int noteId){
+        Note dbnote = noteServiceI.ListNoteContentByNoteId(noteId);
+        ResultResponse res = new ResultResponse();
+        res.setStatus(1);
+        res.setMessage("查询成功");
+        res.setData(dbnote);
+        return res;
+    }
+
 }

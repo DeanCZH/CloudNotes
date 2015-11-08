@@ -30,4 +30,11 @@ public class NoteDaoTest {
         testNote.setNoteCreateTime(new Timestamp(new Date().getTime()));
         noteDaoI.addNote(testNote);
     }
+
+    @Test
+    public void findNoteByNoteIdTest(){
+        Note testnote = noteDaoI.findNoteByNoteId(1);
+        System.out.println(testnote.toString());
+    }
+
 }

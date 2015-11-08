@@ -52,7 +52,7 @@
     <aside class="side-right" id="first_side_right">
         <div class="col-sm-9 sidebar" >
             <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">我的日记</a></li>
+                <li><a href="#" id="my_note">我的日记</a></li>
                 <li><a href="#">我的文件</a></li>
                 <li><a href="#">我的信息</a></li>
             </ul>
@@ -61,14 +61,14 @@
     </div>
 
     <!--内容-->
-    <div class="col-sm-10" style="padding: 0;" id="right_page">
+    <div class="col-sm-10" style="padding: 0;" id="right_page1">
         <div class="right_page_top">
             <div class="row">
                 <div class="col-xs-9">
                      <h3>我的笔记</h3>
                 </div>
                 <div class="col-xs-2"  style="padding: 10px;">
-                    <button class="btn btn-primary btn-sm btn-block">新建笔记</button>
+                    <button class="btn btn-primary btn-sm btn-block" id="create_note">新建笔记</button>
                 </div>
             </div>
         </div>
@@ -79,6 +79,7 @@
                         <ul class="contacts-list" >
                             <div class="col-md-3" id="note_1"  style="padding: 10px;">
                             <a>
+                                <p></p>
                                 <h4 style="font-weight:900; color: black">
                                 </h4>
                                 <p></p>
@@ -87,6 +88,7 @@
                             </div>
                             <div class="col-md-3" id="note_2" style="padding: 10px;" >
                                 <a>
+                                    <p></p>
                                     <h4 style="font-weight:900; color: black">
                                     </h4>
                                     <p></p>
@@ -95,6 +97,7 @@
                                 </div>
                                 <div class="col-md-3" id="note_3" style="padding: 10px;">
                                     <a>
+                                        <p></p>
                                         <h4 style="font-weight:900; color: black">
                                         </h4>
                                         <p></p>
@@ -103,6 +106,7 @@
                            </div>
                             <div class="col-md-3" id="note_4"  style="padding: 10px;">
                                 <a>
+                                    <p></p>
                                     <h4 style="font-weight:900; color: black">
                                     </h4>
                                     <p></p>
@@ -111,6 +115,7 @@
                             </div>
                             <div class="col-md-3" id="note_5"  style="padding:10px;">
                                 <a>
+                                    <p></p>
                                     <h4 style="font-weight:900; color: black">
                                     </h4>
                                     <p></p>
@@ -119,6 +124,7 @@
                             </div>
                             <div class="col-md-3" id="note_6"  style="padding:10px;">
                                 <a>
+                                    <p></p>
                                     <h4 style="font-weight:900; color: black">
                                     </h4>
                                     <p></p>
@@ -130,24 +136,49 @@
                 </div>
             </div>
         </aside>
-
+    </div>
+    <div class="col-sm-10" style='display:none;' id="right_page2">
+        <div class="right_page_top">
+            <div class="row">
+                <div class="col-xs-9">
+                    <p id="note_id" hidden></p>
+                    <h3 id="note_title"></h3>
+                    <p id="note_updatetime"></p>
+                </div>
+                <div class="col-xs-1"  style="padding: 20px;">
+                    <button class="btn btn-primary btn-sm btn-block">编辑</button>
+                </div>
+                <div class="col-xs-1"  style="padding: 20px;">
+                    <button class="btn btn-primary btn-sm btn-block">删除</button>
+                </div>
+            </div>
+        </div>
+        <aside class="side-right" id='second_side_right2'>
+           <p id="note_content">内容!!!</p>
+        </aside>
     </div>
 
-    <script type="text/javascript">
-        //加载DOM之后处理页面高度
-        function get_dom(e){
-            return document.getElementById(e);
-        }
-        function set_height(){
-            var pc_height=window.innerHeight;
-            pc_height=pc_height-132;
-            get_dom('first_side_right').style.height=(pc_height-31)+'px';
+    <div class="col-sm-10" style='display:none;' id="right_page3">
+        <div class="right_page_top">
+            <div class="row">
+                <div class="col-xs-9">
+                    <input type="type" id="note_add_title"/>
+                </div>
 
-            get_dom('second_side_right').style.height=(pc_height-15)+'px';
-        }
-        set_height();
+            </div>
+        </div>
+        <aside class="side-right" id='second_side_right3'>
+            <input type="text" id="note_add_content"/>
+            <div class="col-xs-1"  style="padding: 20px;">
+                <button class="btn btn-primary btn-sm btn-block">保存</button>
+            </div>
+            <div class="col-xs-1"  style="padding: 20px;">
+                <button class="btn btn-primary btn-sm btn-block">返回</button>
+            </div>
+        </aside>
+    </div>
 
-    </script>
+
 </div>
 </div>
 </body>

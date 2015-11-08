@@ -8,5 +8,5 @@ import com.mjl.model.po.User;
  */
 public interface NoteDaoI {
     public void addNote(Note note);
-
+    public Note findNoteByNoteId(int noteId);
 }

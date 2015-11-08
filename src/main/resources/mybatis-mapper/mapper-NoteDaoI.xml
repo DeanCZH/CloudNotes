@@ -27,6 +27,19 @@
     </sql>
 
 
+
+    <select id="findNoteByNoteId" parameterType="int" resultMap="noteMap">
+        SELECT
+        <include refid="note_columns"/>
+        FROM
+        tb_note
+        WHERE
+        note_id = #{noteId}
+
+
+
+    </select>
+
     <insert id="addNote" parameterType="Note" keyProperty="noteId" useGeneratedKeys="true">
         INSERT  INTO
         tb_note(
