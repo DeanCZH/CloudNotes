@@ -65,10 +65,7 @@ function getNoteContent(noteId){
 function createNote(){
     var userId =getCookie("userId");
     var noteTitle = $("#note_add_title").val();
-    editor = CKEDITOR.replace('note_add_content');
-    alert(editor.getData());
     var noteContent = CKEDITOR.instances.note_add_content.getData();
-    alert(noteContent);
     $.ajax({
         type:"post",
         url:basepath+"note/createNote.do",
