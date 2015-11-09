@@ -47,4 +47,19 @@ public class NoteController {
         return res;
     }
 
+    @RequestMapping(value = "createNote" ,method = RequestMethod.POST)
+    @ResponseBody
+    public ResultResponse CreateNote(Note note){
+        Note dbnote =note;
+        ResultResponse rs = new ResultResponse();
+        if(null != dbnote.getNoteTitle() && null !=dbnote.getNoteContent()){
+            noteServiceI.addNote(dbnote);
+            rs.setStatus(1);
+            rs.setMessage("创建笔记成功!");
+            return rs;
+        }
+        rs.setMessage("创建笔记失败");
+        return rs;
+    }
+
 }

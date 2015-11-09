@@ -9,6 +9,7 @@ $(function () {
 
 
 
+//获取笔记列表
 function getNotesList(){
     username = getCookie("userName");
     $.ajax({
@@ -37,10 +38,12 @@ function getNotesList(){
     })
 }
 
-function getNoteContent(userId){
+
+//查看笔记内容
+function getNoteContent(noteId){
     $.ajax({
         type:"get",
-        url:basepath+"note/noteContent-"+userId+".do",
+        url:basepath+"note/noteContent-"+noteId+".do",
         dataType:"json",
         data:{},
         success:function(result){
@@ -55,14 +58,41 @@ function getNoteContent(userId){
             console.log("error");
             alert("请求失败");
         }
-    })
+    });
+}
+
+
+function createNote(){
+    var userId =getCookie("userId");
+    var noteTitle = $("#note_add_title").val();
+    editor = CKEDITOR.replace('note_add_content');
+    alert(editor.getData());
+    var noteContent = CKEDITOR.instances.note_add_content.getData();
+    alert(noteContent);
+    $.ajax({
+        type:"post",
+        url:basepath+"note/createNote.do",
+        dataType:"json",
+        data:{"noteUserId":userId,"noteTitle":noteTitle,"noteContent":noteContent},
+        success:function(result){
+            if(result.status == 1){
+                alert(result.message);
+            }else if(result.status == 0){
+                alert(result.message);
+            }
+        },
+        error:function(XMLHttpRequest,status,statusText){
+            console.log("error");
+            alert("请求失败");
+        }
+    });
 }
 
 
 
 
 
-
+//切换界面
 $(function(){
     $(document).on('click',"#note_1,#note_2,#note_3,#note_4,#note_5,#note_6",function(){
         var noteId = $(this).find("p:eq(0)").html();
@@ -82,6 +112,9 @@ $(function(){
         $('#right_page2,#right_page1').hide();
     });
 
+    $(Document).on('click',"#add_note", function () {
+       createNote();
+    });
 
 });
 

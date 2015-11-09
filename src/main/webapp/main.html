@@ -11,6 +11,8 @@
     <script type="text/javascript" src="js/user/cookie.js"></script>
     <script type="text/javascript" src="js/mainpage.js"></script>
     <script type="text/javascript" src="js/note/note.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+
 </head>
 <body style="padding-top: 50px;">
 
@@ -161,19 +163,23 @@
     <div class="col-sm-10" style='display:none;' id="right_page3">
         <div class="right_page_top">
             <div class="row">
-                <div class="col-xs-9">
-                    <input type="type" id="note_add_title"/>
+                <div class="col-sm-7" style="padding: 20px;">
+                    <input type="text" class="form-control" id="note_add_title" placeholder='笔记标题...'>
                 </div>
+                <div class="col-sm-2"  style="padding: 20px;">
+                    <button class="btn btn-primary btn-sm btn-block" id="add_note">发表文章</button>
+                </div>
+                <!--<div class="col-xs-9" style="padding: 20px;">-->
+                    <!--<input type="type" id="note_add_title" style="width:915px;height:60px;"/>-->
+                <!--</div>-->
 
             </div>
         </div>
         <aside class="side-right" id='second_side_right3'>
-            <input type="text" id="note_add_content"/>
-            <div class="col-xs-1"  style="padding: 20px;">
-                <button class="btn btn-primary btn-sm btn-block">保存</button>
-            </div>
-            <div class="col-xs-1"  style="padding: 20px;">
-                <button class="btn btn-primary btn-sm btn-block">返回</button>
+            <div class="col-sm-10">
+            <textarea type="text" id="note_add_content" name="input_test"  ></textarea>
+            <script type="text/javascript">CKEDITOR.replace('input_test')</script>
+
             </div>
         </aside>
     </div>

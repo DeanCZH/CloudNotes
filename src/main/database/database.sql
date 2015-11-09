@@ -18,7 +18,6 @@ PRIMARY key (user_id)
 CREATE TABLE IF NOT EXISTS tb_note(
 note_id int(10) NOT NULL AUTO_INCREMENT,
 note_userid int(10) NOT NULL,
-note_bookid int(10) NOT NULL,
 note_title varchar(200) NOT NULL,
 note_content TEXT NOT NULL,
 note_createtime DATETIME NOT NULL,

@@ -125,12 +125,15 @@ function login(){
                 //登录成功
 
                 if(checked == true){
+
                     addCookie("userName",result.data.userName,5);
                     addCookie("passWord",result.data.userPassWord,5);
+                    addCookie("userId",result.data.userId,5);
 
                 }else{
                     deleteCookie("userName");
                     deleteCookie("passWord");
+                    deleteCookie("userId");
                 }
                 location.href = "main.html";
             }
@@ -155,7 +158,9 @@ function logout(){
                 alert(result.message);
             }else{
                 //退出成功
-                deleteCookie(getCookie())
+                deleteCookie("userName");
+                deleteCookie("password");
+                deleteCookie("userId");
                 location.href = "login.html";
             }
         },
@@ -163,8 +168,7 @@ function logout(){
             console.log("error");
             alert("请求失败");
         }
-
-
-
     });
+
+
 }

@@ -5,6 +5,7 @@ import com.mjl.model.po.User;
 import com.mjl.model.vo.ResultResponse;
 import com.mjl.service.UserServiceI;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -68,4 +69,19 @@ public class UserController {
         return new ResultResponse(1,"退出成功",null);
     }
 
+    @RequestMapping(value = "userInfo-{userName}",method = RequestMethod.GET)
+    @ResponseBody
+    public ResultResponse userInfo(@PathVariable String userName){
+        User dbuser = new User();
+        ResultResponse rs = new ResultResponse();
+        if(true == userServiceI.checkUserName(userName)){
+            dbuser = userServiceI.findUserByUserName(userName);
+            rs.setStatus(1);
+            rs.setMessage("查询成功");
+            rs.setData(dbuser);
+            return rs;
+        }
+        rs.setMessage("查询失败");
+        return rs;
+    }
 }

@@ -8,6 +8,8 @@ import com.mjl.service.NoteServiceI;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
+import java.util.Date;
 
 
 /**
@@ -29,5 +31,12 @@ public class NoteServiceImpl implements NoteServiceI{
 
     public Note ListNoteContentByNoteId(int id) {
         return noteDaoI.findNoteByNoteId(id);
+    }
+
+    public void addNote(Note note) {
+        if(null != note){
+            note.setNoteCreateTime(new Timestamp(new Date().getTime()));
+            noteDaoI.addNote(note);
+        }
     }
 }
