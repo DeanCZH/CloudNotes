@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户登录</title>
+    <title>主页</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
@@ -133,6 +133,33 @@
                                     <p style="color: dimgray;"></p>
                                 </a>
                             </div>
+                            <div class="col-md-3" id="note_7"  style="padding:10px;">
+                                <a>
+                                    <p></p>
+                                    <h4 style="font-weight:900; color: black">
+                                    </h4>
+                                    <p></p>
+                                    <p style="color: dimgray;"></p>
+                                </a>
+                            </div>
+                            <div class="col-md-3" id="note_8"  style="padding:10px;">
+                                <a>
+                                    <p></p>
+                                    <h4 style="font-weight:900; color: black">
+                                    </h4>
+                                    <p></p>
+                                    <p style="color: dimgray;"></p>
+                                </a>
+                            </div>
+                            <div class="col-md-3" id="note_9"  style="padding:10px;">
+                                <a>
+                                    <p></p>
+                                    <h4 style="font-weight:900; color: black">
+                                    </h4>
+                                    <p></p>
+                                    <p style="color: dimgray;"></p>
+                                </a>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -148,7 +175,7 @@
                     <p id="note_updatetime"></p>
                 </div>
                 <div class="col-xs-1"  style="padding: 20px;">
-                    <button class="btn btn-primary btn-sm btn-block">编辑</button>
+                    <button class="btn btn-primary btn-sm btn-block" id="editor_btn" >编辑</button>
                 </div>
                 <div class="col-xs-1"  style="padding: 20px;">
                     <button class="btn btn-primary btn-sm btn-block">删除</button>
@@ -184,6 +211,25 @@
         </aside>
     </div>
 
+    <div class="col-sm-10" style='display:none;' id="right_page4">
+        <div class="right_page_top">
+            <div class="row">
+                <div class="col-sm-7" style="padding: 20px;">
+                    <input type="text" class="form-control" id="note_editor_title" placeholder='笔记标题...'>
+                </div>
+                <div class="col-sm-2"  style="padding: 20px;">
+                    <button class="btn btn-primary btn-sm btn-block" id="editor_note">发表文章</button>
+                </div>
+            </div>
+        </div>
+        <aside class="side-right" id='second_side_right4'>
+            <div class="col-sm-10">
+                <textarea type="text" id="note_editor_content" name="input_test"  ></textarea>
+                <script type="text/javascript">CKEDITOR.replace('input_test')</script>
+
+            </div>
+        </aside>
+    </div>
 
 </div>
 </div>
