@@ -23,7 +23,7 @@ public class NoteController {
     @Resource
     NoteServiceI noteServiceI;
 
-    @RequestMapping(value = "listNotes-{userName}" ,method = RequestMethod.GET)
+    @RequestMapping(value = "listNotes={userName}" ,method = RequestMethod.GET)
     @ResponseBody
     public ResultResponse ListAllNotes(@PathVariable String userName){
         User dbuser = noteServiceI.ListAllNotesByUserName(userName);
@@ -36,13 +36,15 @@ public class NoteController {
     }
 
 
-    @RequestMapping(value = "noteContent-{noteId}" ,method = RequestMethod.GET)
+    //更新笔记
+    @RequestMapping(value = "updateNote={noteId}" ,method = RequestMethod.GET)
     @ResponseBody
-    public ResultResponse NoteContent(@PathVariable int noteId){
-        Note dbnote = noteServiceI.ListNoteContentByNoteId(noteId);
+    public ResultResponse UpdateNote(@PathVariable int noteId,Note note){
+        Note dbnote = note;
+        noteServiceI.UpdateNote(dbnote);
         ResultResponse res = new ResultResponse();
         res.setStatus(1);
-        res.setMessage("查询成功");
+        res.setMessage("更新成功");
         res.setData(dbnote);
         return res;
     }

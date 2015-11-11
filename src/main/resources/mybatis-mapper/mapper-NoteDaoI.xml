@@ -55,6 +55,22 @@
         )
     </insert>
 
-
+    <update id="updataNote" parameterType="Note" >
+        UPDATE
+        tb_note
+        SET
+        <trim suffixOverrides=",">
+            <if test="noteTitle != null and noteTitle != '' ">
+                note_title= #{noteTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="noteContent != null and noteContent != ''">
+                note_content= #{noteContent,jdbcType=VARCHAR},
+            </if>
+            <if test="noteUpdateTime != null and noteUpdateTime != '' ">
+                note_updatetime=#{noteUpdateTime}
+            </if>
+        </trim>
+        WHERE note_id = #{noteId}
+    </update>
 
 </mapper>

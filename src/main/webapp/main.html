@@ -166,6 +166,7 @@
             </div>
         </aside>
     </div>
+    <!--显示文章-->
     <div class="col-sm-10" style='display:none;' id="right_page2">
         <div class="right_page_top">
             <div class="row">
@@ -183,7 +184,7 @@
             </div>
         </div>
         <aside class="side-right" id='second_side_right2'>
-           <p id="note_content">内容!!!</p>
+           <p id="note_content"></p>
         </aside>
     </div>
 
@@ -196,25 +197,22 @@
                 <div class="col-sm-2"  style="padding: 20px;">
                     <button class="btn btn-primary btn-sm btn-block" id="add_note">发表文章</button>
                 </div>
-                <!--<div class="col-xs-9" style="padding: 20px;">-->
-                    <!--<input type="type" id="note_add_title" style="width:915px;height:60px;"/>-->
-                <!--</div>-->
-
             </div>
         </div>
         <aside class="side-right" id='second_side_right3'>
             <div class="col-sm-10">
             <textarea type="text" id="note_add_content" name="input_test"  ></textarea>
-            <script type="text/javascript">CKEDITOR.replace('input_test')</script>
+            <script type="text/javascript">CKEDITOR.replace('note_add_content')</script>
 
             </div>
         </aside>
     </div>
-
+    <!--修改文章-->
     <div class="col-sm-10" style='display:none;' id="right_page4">
         <div class="right_page_top">
             <div class="row">
                 <div class="col-sm-7" style="padding: 20px;">
+                    <p id="note_editor_id" hidden></p>
                     <input type="text" class="form-control" id="note_editor_title" placeholder='笔记标题...'>
                 </div>
                 <div class="col-sm-2"  style="padding: 20px;">
@@ -224,8 +222,8 @@
         </div>
         <aside class="side-right" id='second_side_right4'>
             <div class="col-sm-10">
-                <textarea type="text" id="note_editor_content" name="input_test"  ></textarea>
-                <script type="text/javascript">CKEDITOR.replace('input_test')</script>
+                <textarea type="text" id="note_editor_content" name="input_test1"  ></textarea>
+                <script type="text/javascript">CKEDITOR.replace('note_editor_content')</script>
 
             </div>
         </aside>

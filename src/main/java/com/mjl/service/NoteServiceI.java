@@ -12,4 +12,5 @@ public interface NoteServiceI {
     public User ListAllNotesByUserName(String username);
     public Note ListNoteContentByNoteId(int id);
     public void addNote(Note note);
+    public void UpdateNote(Note note);
 }

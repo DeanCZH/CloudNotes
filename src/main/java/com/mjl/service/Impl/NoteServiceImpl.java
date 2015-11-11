@@ -39,4 +39,10 @@ public class NoteServiceImpl implements NoteServiceI{
             noteDaoI.addNote(note);
         }
     }
+
+    public void UpdateNote(Note note) {
+        Note dbnote = note;
+        dbnote.setNoteUpDateTime(new Timestamp(new Date().getTime()));
+        noteDaoI.updataNote(dbnote);
+    }
 }

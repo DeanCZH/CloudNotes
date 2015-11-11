@@ -16,7 +16,7 @@ function getNotesList(){
     username = getCookie("userName");
     $.ajax({
         type:"get",
-        url:basepath+"note/listNotes-"+username+".do",
+        url:basepath+"note/listNotes="+username+".do",
         dataType:"json",
         data:{},
         success:function(result){
@@ -65,34 +65,26 @@ function getNoteContent(noteId){
 
 //编辑笔记
 function editorNoteContent(noteId){
+    var noteTitle = $('#note_editor_title').html();
+    var noteContent = CKEDITOR.instances.note_editor_content.getData();
     $.ajax({
-
         type:"get",
         url:basepath+"note/noteContent-"+noteId+".do",
         dataType:"json",
-        data:{},
-        beforeSend:function(){
-          location.href="note/editorNote.html";
-        },
+        data:{"noteId":noteId,"noteTitle":noteTitle,"noteContent":noteContent},
         success:function(result){
             if(result.status == 1){
-                alert("test");
+
             }
         },
         error:function(XMLHttpRequest,status,statusText){
             console.log("error");
             alert("请求失败");
         },
-        complete:function(){
-            alert("test");
-            $('#note_editor_id').html(id);
-            $('#note_editor_title').html(title);
-            $('#note_editor_content').html(content);
-        }
     });
 }
 
-
+//新建笔记
 function createNote(){
     var userId =getCookie("userId");
     var noteTitle = $("#note_add_title").val();
@@ -145,9 +137,15 @@ $(function(){
     });
 
     $(Document).on('click',"#editor_btn", function () {
-        var noteId = $("#note_id").text();
+        var noteId = $("#note_id").html();
+        var noteTitle = $('#note_title').html();
+        var noteContent = $('#note_content').html();
         $('#right_page4').show();
         $('#right_page2,#right_page1,#right_page3').hide();
+        $('#note_editor_id').val(noteId);
+        $('#note_editor_title').val(noteTitle);
+        CKEDITOR.instances.note_editor_content.setData(noteContent);
+
     });
 
 });
