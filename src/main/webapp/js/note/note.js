@@ -45,14 +45,14 @@ function getNotesList(){
 function getNoteContent(noteId){
     $.ajax({
         type:"get",
-        url:basepath+"note/noteContent-"+noteId+".do",
+        url:basepath+"note/noteContent="+noteId+".do",
         dataType:"json",
         data:{},
         success:function(result){
             if(result.status == 1){
                 $('#note_id').text(result.data.noteId);
                 $('#note_title').text(result.data.noteTitle);
-                $('#note_updatetime').text(result.data.noteUpDateTime);
+                $('#note_updatetime').text(timeStamp2String(result.data.noteUpdateTime));
                 $('#note_content').html(result.data.noteContent);
             }
         },
@@ -67,14 +67,21 @@ function getNoteContent(noteId){
 function editorNoteContent(noteId){
     var noteTitle = $('#note_editor_title').html();
     var noteContent = CKEDITOR.instances.note_editor_content.getData();
+
+
     $.ajax({
-        type:"get",
-        url:basepath+"note/noteContent-"+noteId+".do",
+        type:"post",
+        url:basepath+"note/updateNote="+noteId+".do",
         dataType:"json",
         data:{"noteId":noteId,"noteTitle":noteTitle,"noteContent":noteContent},
         success:function(result){
             if(result.status == 1){
+                alert("修改成功!");
+                $('#note_editor_title').val("");
 
+                $('#right_page1,#right_page3,#right_page4').hide();
+                $('#right_page2').show();
+                getNoteContent(noteId);
             }
         },
         error:function(XMLHttpRequest,status,statusText){
@@ -108,9 +115,25 @@ function createNote(){
     });
 }
 
-
-
-
+//删除笔记
+function deleteNote(noteId){
+    $.ajax({
+        type:"delete",
+        url:basepath+"note/delete="+noteId+".do",
+        dataType:"json",
+        data:{},
+        success:function(result){
+            if(result.status == 1){
+                alert(result.message);
+                location.href="main.html";
+            }
+        },
+        error:function(XMLHttpRequest,status,statusText){
+            console.log("error");
+            alert("请求失败");
+        }
+    });
+}
 
 //切换界面
 $(function(){
@@ -148,6 +171,15 @@ $(function(){
 
     });
 
+    $(document).on('click',"#editor_note_btn",function(){
+        var noteId=$("#note_editor_id").val();
+        editorNoteContent(noteId);
+    })
+
+    $(document).on('click',"#delete_btn",function(){
+        var noteId=$("#note_id").html();
+        deleteNote(noteId);
+    })
 });
 
 

@@ -12,7 +12,7 @@ public class Note implements Serializable{
     private String noteTitle;
     private String noteContent;
     private Timestamp noteCreateTime;
-    private Timestamp noteUpDateTime;
+    private Timestamp noteUpdateTime;
 
     public int getNoteId() {
         return noteId;
@@ -54,12 +54,12 @@ public class Note implements Serializable{
         this.noteCreateTime = noteCreateTime;
     }
 
-    public Timestamp getNoteUpDateTime() {
-        return noteUpDateTime;
+    public Timestamp getNoteUpdateTime() {
+        return noteUpdateTime;
     }
 
-    public void setNoteUpDateTime(Timestamp noteUpDateTime) {
-        this.noteUpDateTime = noteUpDateTime;
+    public void setNoteUpdateTime(Timestamp noteUpdateTime) {
+        this.noteUpdateTime = noteUpdateTime;
     }
 
     @Override
@@ -70,7 +70,7 @@ public class Note implements Serializable{
                 ", noteTitle='" + noteTitle + '\'' +
                 ", noteContent='" + noteContent + '\'' +
                 ", noteCreateTime=" + noteCreateTime +
-                ", noteUpDateTime=" + noteUpDateTime +
+                ", noteUpdateTime=" + noteUpdateTime +
                 '}';
     }
 }

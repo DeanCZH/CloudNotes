@@ -13,4 +13,5 @@ public interface NoteServiceI {
     public Note ListNoteContentByNoteId(int id);
     public void addNote(Note note);
     public void UpdateNote(Note note);
+    public void DeleteNoteByNoteId(int noteId);
 }

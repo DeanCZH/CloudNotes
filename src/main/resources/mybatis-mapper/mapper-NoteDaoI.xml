@@ -73,4 +73,10 @@
         WHERE note_id = #{noteId}
     </update>
 
+    <delete id="deleteNoteByNoteId" parameterType="int">
+        DELETE FROM
+        tb_note
+        WHERE
+        note_id = #{noteId}
+    </delete>
 </mapper>

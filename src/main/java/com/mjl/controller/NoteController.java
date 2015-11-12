@@ -36,11 +36,30 @@ public class NoteController {
     }
 
 
-    //更新笔记
-    @RequestMapping(value = "updateNote={noteId}" ,method = RequestMethod.GET)
+    @RequestMapping(value = "noteContent={noteId}" ,method = RequestMethod.GET)
     @ResponseBody
-    public ResultResponse UpdateNote(@PathVariable int noteId,Note note){
-        Note dbnote = note;
+    public ResultResponse NoteContent(@PathVariable int noteId){
+        Note dbnote = noteServiceI.ListNoteContentByNoteId(noteId);
+        ResultResponse res = new ResultResponse();
+        res.setStatus(1);
+        res.setMessage("查询成功");
+        res.setData(dbnote);
+        return res;
+    }
+
+
+    //更新笔记
+    @RequestMapping(value = "updateNote={noteId}" ,method = RequestMethod.POST)
+    @ResponseBody
+    public ResultResponse UpdateNote(@PathVariable int noteId,String noteTitle,String noteContent){
+        Note dbnote = new Note();
+        dbnote.setNoteId(noteId);
+        dbnote.setNoteTitle(noteTitle);
+        dbnote.setNoteContent(noteContent);
+        System.out.println("notetitle!!"+dbnote.getNoteTitle());
+        System.out.println("noteCOntetn!!"+dbnote.getNoteContent());
+
+
         noteServiceI.UpdateNote(dbnote);
         ResultResponse res = new ResultResponse();
         res.setStatus(1);
@@ -49,6 +68,7 @@ public class NoteController {
         return res;
     }
 
+    //创建笔记
     @RequestMapping(value = "createNote" ,method = RequestMethod.POST)
     @ResponseBody
     public ResultResponse CreateNote(Note note){
@@ -63,5 +83,16 @@ public class NoteController {
         rs.setMessage("创建笔记失败");
         return rs;
     }
+
+    @RequestMapping(value = "delete={noteId}" ,method = RequestMethod.DELETE)
+    @ResponseBody
+    public ResultResponse DeleteNote(@PathVariable int noteId){
+        noteServiceI.DeleteNoteByNoteId(noteId);
+        ResultResponse rs = new ResultResponse();
+        rs.setStatus(1);
+        rs.setMessage("删除成功!");
+        return rs;
+    }
+
 
 }
