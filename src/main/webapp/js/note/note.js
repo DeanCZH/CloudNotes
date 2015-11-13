@@ -104,6 +104,11 @@ function createNote(){
         success:function(result){
             if(result.status == 1){
                 alert(result.message);
+                $("#note_add_title").val(" ");
+                CKEDITOR.instances.note_add_content.setData(" ");
+                $('#right_page1').show();
+                $('#right_page2,#right_page3,#right_page4').hide();
+                getNotesList();
             }else if(result.status == 0){
                 alert(result.message);
             }
