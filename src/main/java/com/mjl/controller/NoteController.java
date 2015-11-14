@@ -23,6 +23,7 @@ public class NoteController {
     @Resource
     NoteServiceI noteServiceI;
 
+    //显示所有笔记
     @RequestMapping(value = "listNotes={userName}" ,method = RequestMethod.GET)
     @ResponseBody
     public ResultResponse ListAllNotes(@PathVariable String userName){
@@ -35,7 +36,7 @@ public class NoteController {
         return res;
     }
 
-
+    //显示笔记内容
     @RequestMapping(value = "noteContent={noteId}" ,method = RequestMethod.GET)
     @ResponseBody
     public ResultResponse NoteContent(@PathVariable int noteId){

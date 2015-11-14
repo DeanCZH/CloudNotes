@@ -39,8 +39,6 @@ public class UserServiceImpl implements UserServiceI{
 
     }
 
-
-
     //用户登录
     public Map<String, Object> login(String userName, String passWord) {
         Map<String,Object> result = new HashMap<String, Object>();
