@@ -119,6 +119,7 @@ function login(){
         success:function(result) {
             if (result.status == 0) {
                 //登录失败
+                alert($.md5("HELLO"));
                 $("#waring_1").text(result.message).css({color:"red"}).show();
                 $("#password").val("");
             } else {
@@ -159,7 +160,7 @@ function logout(){
             }else{
                 //退出成功
                 deleteCookie("userName");
-                deleteCookie("password");
+                deleteCookie("passWord");
                 deleteCookie("userId");
                 location.href = "login.html";
             }

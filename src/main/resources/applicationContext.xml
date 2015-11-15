@@ -30,7 +30,7 @@
 
 
 
-    <!--<aop:aspectj-autoproxy proxy-target-class="true" />-->
+
     <!--配置数据源-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${jdbc_driverClassName}"/>
@@ -106,8 +106,11 @@
         <!--<aop:pointcut id="pc" expression="execution( * com.mjl.service.*.*(..))" /> &lt;!&ndash;把事务控制在Service层&ndash;&gt;-->
         <!--<aop:advisor pointcut-ref="pc" advice-ref="userTxAdvice" />-->
     <!--</aop:config>-->
+    <!--spring默认是不支持@aspect风格的切面申明的，需要在配置文件中间添加-->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
 
-   <!--<bean id="loginAop" class="com.mjl.aop.loginAop"/>-->
+   <bean id="UserLogAop" class="com.mjl.aop.logAop"/>
+
 
 </beans>
 

@@ -9,11 +9,11 @@ package com.mjl.model.vo;
 
 public class ResultResponse {
     //结果状态:0:失败 1.成功
-    private int status;
+    private int status = 1;
     //用于返回的信息,在前端显示
-    private String message;
+    private String message ="";
     //用于返回需要传递给用户的信息
-    private Object data;
+    private Object data =null;
 
     public int getStatus() {
         return status;

@@ -47,12 +47,14 @@ public class UserServiceImpl implements UserServiceI{
         if( user.getUserPassWord().equals(passWord)){
             result.put("status",Constant.USER_LOGIN_SUCCESS);
             result.put("message","登录成功!");
+            return result;
+
         }else{
             result.put("status", Constant.USER_LOGIN_ERROR);
             result.put("message","用户名或密码错误!");
+            return result;
         }
-        System.out.println("service");
-        return result;
+
     }
 
     public User findUserByUserName(String userName) {
