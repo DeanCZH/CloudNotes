@@ -27,12 +27,18 @@ public class NoteController {
     @RequestMapping(value = "listNotes={userName}" ,method = RequestMethod.GET)
     @ResponseBody
     public ResultResponse ListAllNotes(@PathVariable String userName){
-        User dbuser = noteServiceI.ListAllNotesByUserName(userName);
-        List<Note> noteList = dbuser.getNotes();
         ResultResponse res = new ResultResponse();
-        res.setStatus(1);
-        res.setMessage("查询成功");
-        res.setData(noteList);
+        User dbuser = noteServiceI.ListAllNotesByUserName(userName);
+        if(dbuser != null) {
+            List<Note> noteList = dbuser.getNotes();
+
+            res.setStatus(1);
+            res.setMessage("查询成功");
+            res.setData(noteList);
+            return res;
+        }
+        res.setStatus(0);
+        res.setMessage("查询失败");
         return res;
     }
 

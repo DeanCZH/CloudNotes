@@ -56,7 +56,14 @@
     </welcome-file-list>
 
 
-
+     <filter>
+         <filter-name>PageFilter</filter-name>
+         <filter-class>com.mjl.filter.PageFilter</filter-class>
+     </filter>
+    <filter-mapping>
+        <filter-name>PageFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 
 

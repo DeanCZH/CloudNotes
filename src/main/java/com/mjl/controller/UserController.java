@@ -36,7 +36,7 @@ public class UserController {
             dbuser.setUserLastIp(request.getRemoteAddr());
             dbuser.setUserLastLoginTime(new Timestamp(new Date().getTime()));
             userServiceI.updateUserInfo(dbuser);
-            session.setAttribute("user", dbuser);
+            session.setAttribute("userName", dbuser.getUserName());
             result.put("user", dbuser);
         }
         ResultResponse res = new  ResultResponse((Integer) result.get("status"),(String)result.get("message"),result.get("user"));
