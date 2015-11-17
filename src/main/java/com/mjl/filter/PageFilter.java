@@ -20,16 +20,18 @@ public class PageFilter extends HttpServlet implements Filter{
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         //获取文件的上下文
-        String requestUri = request.getRequestURI();        //获取当前连接名字
+        String requestUri = request.getRequestURI();
+        //获取当前连接名字
         String Path = request.getContextPath();
         String basePath= request.getScheme()+"://"+request.getServerName()+":"
                 +request.getServerPort()+Path+"/";
-        String[] noFilter = new String[]{"login.html","/js/user/user.js","/user/login.do"};
+        //不需要过滤的页面
+        String[] noFilter = new String[]{"login.html","/js/user/user.js","/user/login.do","/js/user/cookie.js",
+        "/js/base.js","/js/common/jquery.md5.js"};
         boolean beFilter = true;
         for(String s:noFilter){
             System.out.println(requestUri);
             if(requestUri.indexOf(s)!=-1){
-                System.out.println("===============不需要拦截的对象=============");
                 beFilter = false;
                 break;
             }

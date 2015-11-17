@@ -5,7 +5,7 @@
 
 
 <mapper namespace="com.mjl.dao.NoteDaoI">
-    <!--User结果集-->
+
     <resultMap id="noteMap" type="Note">
         <id property="noteId" column="note_id"/>
         <result property="noteUserId" column="note_userid"/>
@@ -55,7 +55,7 @@
         )
     </insert>
 
-    <update id="updataNote" parameterType="Note" >
+    <update id="updateNote" parameterType="Note" >
         UPDATE
         tb_note
         SET

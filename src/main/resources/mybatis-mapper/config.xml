@@ -6,6 +6,7 @@
     <typeAliases>
         <typeAlias type="com.mjl.model.po.User" alias="User"></typeAlias>
         <typeAlias type="com.mjl.model.po.Note" alias="Note"></typeAlias>
+        <typeAlias type="com.mjl.model.po.Upload" alias="Upload"></typeAlias>
     </typeAliases>
 
 

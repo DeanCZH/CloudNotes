@@ -59,19 +59,19 @@
         <property name="mapperLocations" value="classpath*:mybatis-mapper/mapper-*.xml"/>
     </bean>
 
-    <!--<bean id="UserDaoI" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-        <!--&lt;!&ndash;sqlSessionFactory属性指定要用到的SqlSessionFactory实例&ndash;&gt;-->
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
-        <!--&lt;!&ndash;mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象&ndash;&gt;-->
-        <!--<property name="mapperInterface" value="com.mjl.dao.UserDaoI" />-->
-    <!--</bean>-->
+    <bean id="UserDaoI" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例-->
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+        <!--mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象-->
+        <property name="mapperInterface" value="com.mjl.dao.UserDaoI" />
+    </bean>
 
-    <!--<bean id="NoteDaoI" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-        <!--&lt;!&ndash;sqlSessionFactory属性指定要用到的SqlSessionFactory实例&ndash;&gt;-->
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
-        <!--&lt;!&ndash;mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象&ndash;&gt;-->
-        <!--<property name="mapperInterface" value="com.mjl.dao.NoteDaoI" />-->
-    <!--</bean>-->
+    <bean id="NoteDaoI" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例-->
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+        <!--mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象-->
+        <property name="mapperInterface" value="com.mjl.dao.NoteDaoI" />
+    </bean>
 
 
     <!-- 创建数据映射器-->

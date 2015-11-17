@@ -45,7 +45,7 @@ public class NoteServiceImpl implements NoteServiceI{
     public void UpdateNote(Note note) {
         Note dbnote = note;
         dbnote.setNoteUpdateTime(new Timestamp(new Date().getTime()));
-        noteDaoI.updataNote(dbnote);
+        noteDaoI.updateNote(dbnote);
     }
 
     public void DeleteNoteByNoteId(int noteId) {

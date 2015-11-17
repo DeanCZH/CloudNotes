@@ -155,6 +155,12 @@ $(function(){
         getNotesList();
     });
 
+    $(document).on('click',"#My_notes", function () {
+        $('#right_page1').show();
+        $('#right_page2,#right_page3,#right_page4').hide();
+        getNotesList();
+    });
+
     $(document).on('click',"#create_note", function () {
         $('#right_page3').show();
         $('#right_page2,#right_page1,#right_page4').hide();

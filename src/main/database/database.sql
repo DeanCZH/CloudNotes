@@ -25,13 +25,11 @@ note_updatetime DATETIME NOT NULL,
 PRIMARY key (note_id)
 )ENGINE=InnoDB DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 
-#BOOK
-CREATE TABLE IF NOT EXISTS tb_book(
-book_id int(10) NOT NULL AUTO_INCREMENT,
-book_userid int(10) NOT NULL,
-book_title varchar(200) NOT NULL,
-book_desc varchar(2000) NOT NULL,
-book_notenum int(10) NOT NULL DEFAULT '0' COMMENT '笔记总数',
-note_createtime DATETIME NOT NULL,
-PRIMARY key (book_id)
+#UPLOAD
+CREATE TABLE IF NOT EXISTS tb_upload(
+upload_id int(10) NOT NULL AUTO_INCREMENT,
+upload_userid int(10) NOT NULL,
+upload_urilist varchar(200) NOT NULL,
+upload_createtime DATETIME NOT NULL,
+PRIMARY key (upload_id)
 )ENGINE=InnoDB DEFAULT CHARSET utf8 COLLATE utf8_general_ci;

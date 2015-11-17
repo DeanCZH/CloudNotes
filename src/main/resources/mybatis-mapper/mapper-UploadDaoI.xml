@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mjl.dao.UploadDaoI">
+
+    <resultMap id="uploadMap" type="Upload">
+        <id property="uploadId" column="upload_id"/>
+        <result property="uploadUserId" column="upload_userid"/>
+        <result property="uploadUriList" column="upload_urilist"/>
+        <result property="uploadCreateTime" column="upload_createtime"/>
+    </resultMap>
+
+    <sql id="upload_columns">
+        upload_id,
+        upload_userid,
+        upload_urilist,
+        upload_createtime
+    </sql>
+
+    <select id="selete" resultMap="UploadMap">
+        SELECT
+        <include refid="upload_columns"></include>
+        FROM
+        tb_upload
+    </select>
+
+    <insert id="add" parameterType="Upload" keyProperty="uploadId" useGeneratedKeys="true">
+        INSERT  INTO
+        tb_upload(
+        upload_id,
+        upload_urilist,
+        upload_createtime
+        )VALUES(
+        #{uploadId},
+        #{uploadUserId},
+        #{uploadUriList},
+        #{uploadCreateTime}
+        )
+    </insert>
+
+    <update id="update" parameterType="Upload" >
+        UPDATE
+        tb_upload
+        SET
+        <trim suffixOverrides=",">
+            <if test="uploadUserId != null and uploadUserId != '' ">
+                upload_userid= #{uploadUserId},
+            </if>
+            <if test="uploadUriList != null and uploadUriList != ''">
+                upload_urilist= #{uploadUriList},
+            </if>
+            <if test="uploadCreateTime != null and uploadCreateTime != '' ">
+                upload_createtime=#{uploadCreateTime}
+            </if>
+        </trim>
+        WHERE tb_upload = #{uploadId}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM
+        tb_upload
+        WHERE
+        upload = #{uploadId}
+    </delete>
+</mapper>

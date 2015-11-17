@@ -25,10 +25,10 @@ public class UserDaoTest {
     @Test
     public void insertTest(){
         User testuser = new User();
-        testuser.setUserName("test4");
+        testuser.setUserName("test30");
         testuser.setUserPassWord("1234");
-        testuser.setUserEmail("qswe@rqwe.com");
-        testuser.setUserPhone("13042345678");
+        testuser.setUserEmail("q23we@qsdfdse.com");
+        testuser.setUserPhone("13043342678");
         testuser.setUserCreateTime(new Timestamp(new Date().getTime()));
         testuser.setUserLastLoginTime(new Timestamp(new Date().getTime()));
         testuser.setUserLastIp("192.168.192.192");

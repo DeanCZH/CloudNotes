@@ -5,7 +5,7 @@
 
 
 <mapper namespace="com.mjl.dao.UserDaoI">
-    <!--User结果集-->
+
     <resultMap id="userMap" type="User">
         <id property="userId" column="user_id"/>
         <result property="userName" column="user_name"/>
@@ -36,9 +36,6 @@
         </collection>
     </resultMap>
 
-    
-    
-    
     <sql id="user_columns">
         user_id,
         user_name,
@@ -79,7 +76,7 @@
 
 
     <!--插入用户信息-->
-    <insert id="addUser" parameterType="User" keyProperty="userId" useGeneratedKeys="true">
+    <insert id="addUser"  parameterType="User" keyProperty="userId" useGeneratedKeys="true">
         INSERT  INTO
         tb_user(
         user_name,
