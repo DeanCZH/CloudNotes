@@ -18,21 +18,22 @@
         upload_createtime
     </sql>
 
-    <select id="selete" resultMap="UploadMap">
+    <select id="selete" resultMap="uploadMap">
         SELECT
         <include refid="upload_columns"></include>
         FROM
         tb_upload
+        WHERE
+        upload_id = #{uploadId}
     </select>
 
     <insert id="add" parameterType="Upload" keyProperty="uploadId" useGeneratedKeys="true">
         INSERT  INTO
         tb_upload(
-        upload_id,
+        upload_userid,
         upload_urilist,
         upload_createtime
         )VALUES(
-        #{uploadId},
         #{uploadUserId},
         #{uploadUriList},
         #{uploadCreateTime}
@@ -54,13 +55,13 @@
                 upload_createtime=#{uploadCreateTime}
             </if>
         </trim>
-        WHERE tb_upload = #{uploadId}
+        WHERE upload_id = #{uploadId}
     </update>
 
     <delete id="delete" parameterType="int">
         DELETE FROM
         tb_upload
         WHERE
-        upload = #{uploadId}
+        upload_id = #{uploadId}
     </delete>
 </mapper>

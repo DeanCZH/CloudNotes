@@ -43,4 +43,14 @@ public class Upload implements Serializable{
     public void setUploadCreateTime(Timestamp uploadCreateTime) {
         this.uploadCreateTime = uploadCreateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Upload{" +
+                "uploadId=" + uploadId +
+                ", uploadUserId=" + uploadUserId +
+                ", uploadUriList='" + uploadUriList + '\'' +
+                ", uploadCreateTime=" + uploadCreateTime +
+                '}';
+    }
 }
